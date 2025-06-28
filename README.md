@@ -63,7 +63,7 @@ The application supports three user roles:
     php artisan migrate:fresh --seed
    
 6. **Serve the application**
-    If using Herd, go to: http://swim-club.test
+    If using Herd, go to:    http://swim-club.test
     Or run:
     php artisan serve
 
