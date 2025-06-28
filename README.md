@@ -43,25 +43,29 @@ The application supports three user roles:
 
 ### Installation
 1. **Clone the repository**:
-    ```git clone https://github.com/pegah-khm/Swim-Club-Laravel-Application.git
-    ```cd Swim-Club-Laravel-Application
+    ```
+    git clone https://github.com/pegah-khm/Swim-Club-Laravel-Application.git
+    cd Swim-Club-Laravel-Application
 
 2. **Install Dependencies**
-    ```composer install
-    ```npm install && npm run dev
+    ```
+    composer install
+    npm install && npm run dev
 
 3. **Configure Database**
-    ```Update .env with your preferred DB connection. Example for SQLite:
-    ```DB_CONNECTION=sqlite
-    ```DB_DATABASE=/absolute/path/to/database.sqlite
+    Update .env with your preferred DB connection. Example for SQLite:
+    ```
+    DB_CONNECTION=sqlite
+    DB_DATABASE=/absolute/path/to/database.sqlite
 
 5. **Run migrations and seeders**
-    ```php artisan migrate:fresh --seed
+    ```
+    php artisan migrate:fresh --seed
    
 6. **Serve the application**
-    ```If using Herd, go to: http://swim-club.test
-    ```Or run:
-    ```php artisan serve
+    If using Herd, go to: http://swim-club.test
+    Or run:
+    php artisan serve
 
 ## 👥 Demo Accounts
     These user roles are seeded by default:
