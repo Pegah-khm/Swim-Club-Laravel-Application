@@ -1,5 +1,4 @@
-![swim](https://github.com/user-attachments/assets/78a482b8-eb9a-4b90-a732-54b754b269df)
-
+![swimming](https://github.com/user-attachments/assets/015be0f0-7506-4379-bc6e-db17fa3a6106)
 # 🏊‍♀️ Swim Club Laravel Application
 
 This is a Laravel-based web application built for managing a swimming club's operations. The system supports different user roles including **Club Officials**, **Coaches**, and **Swimmers**, and enables them to manage squads, swimmers, training performance, race results, and events.
