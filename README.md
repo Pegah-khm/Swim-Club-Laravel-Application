@@ -43,28 +43,28 @@ The application supports three user roles:
 
 ### Installation
 1. **Clone the repository**:
-   git clone https://github.com/pegah-khm/Swim-Club-Laravel-Application.git
-   cd Swim-Club-Laravel-Application
+    git clone https://github.com/pegah-khm/Swim-Club-Laravel-Application.git
+    cd Swim-Club-Laravel-Application
 
 2. **Install Dependencies**
     composer install
     npm install && npm run dev
 
 3. **Configure Database**
-   Update .env with your preferred DB connection. Example for SQLite:
-      DB_CONNECTION=sqlite
-      DB_DATABASE=/absolute/path/to/database.sqlite
+    Update .env with your preferred DB connection. Example for SQLite:
+    DB_CONNECTION=sqlite
+    DB_DATABASE=/absolute/path/to/database.sqlite
 
-4. **Run migrations and seeders**
-   php artisan migrate:fresh --seed
+5. **Run migrations and seeders**
+    php artisan migrate:fresh --seed
    
-5. **Serve the application**
-   If using Herd, go to: http://swim-club.test
-   Or run:
-   php artisan serve
+6. **Serve the application**
+    If using Herd, go to: http://swim-club.test
+    Or run:
+    php artisan serve
 
 ## 👥 Demo Accounts
-These user roles are seeded by default:
+    These user roles are seeded by default:
 
 | Role          | Email              | Password    |
 |---------------|--------------------|-------------|
@@ -73,9 +73,9 @@ These user roles are seeded by default:
 | Coach         | c1@coach.com       | C11111111   |
 
 ## 📌 Notes
-This project is optimised for local development.
-It includes factories and seeders for easy testing.
-Role-based access is enforced via custom middleware.
+    This project is optimised for local development.
+    It includes factories and seeders for easy testing.
+    Role-based access is enforced via custom middleware.
 
 📨 Contact
 For any questions or collaboration:
