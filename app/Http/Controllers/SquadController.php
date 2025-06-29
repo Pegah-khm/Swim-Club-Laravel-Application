@@ -54,7 +54,7 @@ class SquadController extends Controller
     public function edit(string $id)
     {
         $squad = Squad::findOrFail($id);
-        $coaches = User::where('role', 'coach')->get(); // To populate the coach dropdown
+        $coaches = User::where('role', 'coach')->get();
 
         return view('squads.edit', compact('squad', 'coaches'));
     }

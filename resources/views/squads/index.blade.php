@@ -1,12 +1,17 @@
 <x-layout heading="Swim Teams (Squads)">
     <div class="max-w-6xl mx-auto py-6 sm:px-6 lg:px-8 space-y-10">
 
+        @php
+            /** @var \App\Models\User $user */
+            $user = auth()->user();
+        @endphp
         @foreach ($squads as $squad)
             <div>
                 <h2 class="text-2xl font-bold text-blue-900 mb-4">
                     {{ $squad->name }}
                     @if ($squad->coach)
-                        <span class="text-lg font-medium text-gray-700">— Coach: {{ $squad->coach->forename }} {{ $squad->coach->surname }}</span>
+                        <span
+                            class="text-lg font-medium text-gray-700">— Coach: {{ $squad->coach->forename }} {{ $squad->coach->surname }}</span>
                     @else
                         <span class="text-lg font-medium text-gray-500">— Coach: N/A</span>
                     @endif
@@ -15,12 +20,13 @@
                 <table class="w-full table-auto text-center border-collapse border border-gray-300">
                     <thead class="bg-gray-100">
                     <tr>
-                        <th class="border px-4 py-2">First Name</th>
-                        <th class="border px-4 py-2">Surname</th>
-                        <th class="border px-4 py-2">Email</th>
-                        <th class="border px-4 py-2">Squad Name</th>
-                        <th>Actions</th>
-
+                        <th>First Name</th>
+                        <th>Surname</th>
+                        <th>Email</th>
+                        <th>Squad Name</th>
+                        @if($user && $user->role === 'club_official')
+                            <th>Actions</th>
+                        @endif
                     </tr>
                     </thead>
                     <tbody>
@@ -30,18 +36,18 @@
                             <td class="border px-4 py-2">{{ $swimmer->surname }}</td>
                             <td class="border px-4 py-2">{{ $swimmer->email }}</td>
                             <td class="border px-4 py-2">{{ $squad->name }}</td>
-                            <td>
-                                @if(auth()->user()->role === 'club_official')
+                            @if(in_array(optional(auth()->user())->role, ['club_official', 'coach']))
+                                <td>
                                     <a href="{{ route('squads.edit', $squad->id) }}" class="action-button">Edit</a>
-
-                                    <form action="{{ route('squads.removeSwimmer', [$squad->id, $swimmer->id]) }}" method="POST"
+                                    <form action="{{ route('squads.removeSwimmer', [$squad->id, $swimmer->id]) }}"
+                                          method="POST"
                                           class="inline-block" onsubmit="return confirm('Are you sure?');">
                                         @csrf
                                         @method('DELETE')
                                         <button type="submit" class="action-button">Delete</button>
                                     </form>
-                                @endif
-                            </td>
+                                </td>
+                            @endif
                         </tr>
                     @empty
                         <tr>

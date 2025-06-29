@@ -6,13 +6,14 @@
 
             <div class="mb-4">
                 <label for="name" class="block font-semibold">Squad Name</label>
-                <input type="text" id="name" name="name" value="{{ old('name', $squad->name) }}" class="input">
+                <input class="bg-white border border-gray-300 rounded px-3 py-2 my-2"
+                       type="text" id="name" name="name" value="{{ old('name', $squad->name) }}"
                 @error('name') <p class="text-red-600 text-sm">{{ $message }}</p> @enderror
             </div>
 
-            <div class="mb-4">
+            <div class="mb-6">
                 <label for="coach_id" class="block font-semibold">Coach</label>
-                <select id="coach_id" name="coach_id" class="input">
+                <select id="coach_id" name="coach_id" class="bg-white border border-gray-300 rounded px-3 py-2">
                     <option value="">-- No Coach Assigned --</option>
                     @foreach($coaches as $coach)
                         <option value="{{ $coach->id }}" {{ $squad->coach_id == $coach->id ? 'selected' : '' }}>

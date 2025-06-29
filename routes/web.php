@@ -42,7 +42,13 @@ Route::middleware('auth')->group(function () {
     Route::get('/swimmers/{swimmer}', [SwimmerController::class, 'show'])->name('swimmers.show');
 
     Route::get('/squads', [SquadController::class, 'index'])->name('squads.index');
-    Route::get('/squads/{squad}', [SquadController::class, 'show'])->name('squads.show');
+    Route::get('/squads/{squad}/edit', [SquadController::class, 'edit'])
+        ->name('squads.edit')
+        ->middleware(['auth', 'role:club_official,coach']);
+    Route::delete('/squads/{squad}/swimmers/{user}', [SquadController::class, 'removeSwimmer'])
+        ->name('squads.removeSwimmer')->middleware(['auth', 'role:coach']);
+
+
 
     Route::get('/events', [EventController::class, 'index'])->name('events.index');
     Route::get('/events/{event}', [EventController::class, 'show'])->name('events.show');
